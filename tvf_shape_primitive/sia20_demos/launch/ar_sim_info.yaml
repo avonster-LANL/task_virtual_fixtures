@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<launch>
+  <rosparam param="ids">[11]</rosparam>
+  <rosparam param="ar_10_xyz">[0.8, 0.9, 0.1]</rosparam>
+  <rosparam param="ar_10_rpy">[3.14, 0.0, 0.0]</rosparam>
+  <rosparam param="ar_11_xyz">[0.6, 0.6, 0.25]</rosparam>
+  <rosparam param="ar_11_rpy">[1.57, 0.0, 0.0]</rosparam>
+  <rosparam param="ar_12_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="ar_12_rpy">[1.57, 0.0, 0.0]</rosparam>
+  <rosparam param="ar_13_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="ar_13_rpy">[1.57, 0.0, 0.0]</rosparam>
+  <rosparam param="ar_14_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="ar_14_rpy">[1.57, 0.0, 0.0]</rosparam>
+  <rosparam param="ar_18_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="ar_18_rpy">[1.57, 0.0, 0.0]</rosparam>
+</launch>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <name>tvf_interactive_demos</name>
+  <version>1.0.2</version>
+  <description>
+      TVF interactive marker demos
+  </description>
+
+  <license>BSD</license>
+  <author email="asharp@utexas.edu">Andrew Sharp</author>
+  <maintainer email="asharp@utexas.edu">Andrew Sharp</maintainer>
+  <url type="website">http://robotics.me.utexas.edu</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>rospy</build_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>tvf_interactive</run_depend>
+  <run_depend>tvf_nav_descartes</run_depend>
+
+</package>

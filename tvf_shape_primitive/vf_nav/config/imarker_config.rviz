@@ -1,0 +1,410 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded: ~
+      Splitter Ratio: 0.393442988
+    Tree Height: 1223
+  - Class: rviz/Help
+    Name: Help
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.0299999993
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: moveit_rviz_plugin/MotionPlanning
+      Enabled: true
+      Move Group Namespace: ""
+      MoveIt_Goal_Tolerance: 0
+      MoveIt_Planning_Attempts: 10
+      MoveIt_Planning_Time: 5
+      MoveIt_Use_Constraint_Aware_IK: true
+      MoveIt_Warehouse_Host: 127.0.0.1
+      MoveIt_Warehouse_Port: 33829
+      MoveIt_Workspace:
+        Center:
+          X: 0
+          Y: 0
+          Z: 0
+        Size:
+          X: 2
+          Y: 2
+          Z: 2
+      Name: MotionPlanning
+      Planned Path:
+        Color Enabled: false
+        Interrupt Display: false
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+          base:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          eef:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          eef_frame_interactive:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          laser_cutter:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_b:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_e:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_l:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_r:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_s:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_t:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_u:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          tool0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+        Loop Animation: false
+        Robot Alpha: 0.5
+        Robot Color: 150; 50; 150
+        Show Robot Collision: false
+        Show Robot Visual: true
+        Show Trail: false
+        State Display Time: 0.05 s
+        Trail Step Size: 1
+        Trajectory Topic: move_group/display_planned_path
+      Planning Metrics:
+        Payload: 1
+        Show Joint Torques: false
+        Show Manipulability: false
+        Show Manipulability Index: false
+        Show Weight Limit: false
+        TextHeight: 0.0799999982
+      Planning Request:
+        Colliding Link Color: 255; 0; 0
+        Goal State Alpha: 1
+        Goal State Color: 250; 128; 0
+        Interactive Marker Size: 0.200000003
+        Joint Violation Color: 255; 0; 255
+        Planning Group: sia20
+        Query Goal State: false
+        Query Start State: false
+        Show Workspace: false
+        Start State Alpha: 1
+        Start State Color: 0; 255; 0
+      Planning Scene Topic: move_group/monitored_planning_scene
+      Robot Description: robot_description
+      Scene Geometry:
+        Scene Alpha: 1
+        Scene Color: 255; 255; 255
+        Scene Display Time: 0.200000003
+        Show Scene Geometry: true
+        Voxel Coloring: Z-Axis
+        Voxel Rendering: Occupied Voxels
+      Scene Robot:
+        Attached Body Color: 150; 50; 150
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+          base:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          eef:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          eef_frame_interactive:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          laser_cutter:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_b:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_e:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_l:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_r:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_s:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_t:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          link_u:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          tool0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+        Robot Alpha: 1
+        Show Robot Collision: false
+        Show Robot Visual: true
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /tvf_markers
+      Name: Marker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /descartes_array_markers
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.00999999978
+      Style: Flat Squares
+      Topic: /camera/depth/points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Class: rviz/Axes
+      Enabled: true
+      Length: 0.109999999
+      Name: Axes
+      Radius: 0.00499999989
+      Reference Frame: z_20_xy_20
+      Value: true
+    - Class: rviz/Axes
+      Enabled: true
+      Length: 0.100000001
+      Name: Axes
+      Radius: 0.00999999978
+      Reference Frame: eef
+      Value: true
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: true
+      Name: InteractiveMarkers
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /mesh_imarkers/update
+      Value: true
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: true
+      Name: InteractiveMarkers
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /tvf_imarkers/update
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Default Light: true
+    Fixed Frame: base_link
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+  Value: true
+  Views:
+    Current:
+      Class: rviz_animated_view_controller/Animated
+      Control Mode: Orbit
+      Distance: 5.99079847
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.0599999987
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Eye:
+        X: 1.25317216
+        Y: 5.50560808
+        Z: 3.58093691
+      Focus:
+        X: 0.243914694
+        Y: 0.472571939
+        Z: 0.492310852
+      Invert Z Axis: false
+      Maintain Vertical Axis: true
+      Mouse Enabled: true
+      Name: Current View
+      Near Clip Distance: 0.00999999978
+      Placement Topic: /rviz/camera_placement
+      Target Frame: base_link
+      Transition Time: 0.5
+      Up:
+        X: 0
+        Y: 0
+        Z: 1
+      Value: Animated (rviz_animated_view_controller)
+    Saved:
+      - Class: rviz_animated_view_controller/Animated
+        Control Mode: Orbit
+        Distance: 2.7146399
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.0599999987
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Eye:
+          X: 1.92828
+          Y: 1.38847005
+          Z: 2.89792991
+        Focus:
+          X: 0.570959985
+          Y: 0.0311517008
+          Z: 0.978393018
+        Invert Z Axis: false
+        Maintain Vertical Axis: true
+        Mouse Enabled: true
+        Name: Animated
+        Near Clip Distance: 0.00999999978
+        Placement Topic: /rviz/camera_placement
+        Target Frame: base_link
+        Transition Time: 0.5
+        Up:
+          X: 0
+          Y: 0
+          Z: 1
+        Value: Animated (rviz_animated_view_controller)
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1388
+  Help:
+    collapsed: false
+  Hide Left Dock: false
+  Hide Right Dock: false
+  MotionPlanning:
+    collapsed: false
+  MotionPlanning - Slider:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd0000000100000000000002b800000526fc0200000005fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000004a00fffffffc0000002800000526000001ea0100001dfa000000000100000002fb000000100044006900730070006c0061007900730100000000ffffffff0000016a00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000000000002b8000002b800fffffffb0000000800480065006c007000000002e8000000760000007300fffffffb0000000a0056006900650077007300000003b1000000ad000000ad00fffffffb0000000a005600690065007700730000000405000000c5000000ad00ffffff000003da0000052600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Views:
+    collapsed: false
+  Width: 1688
+  X: 65
+  Y: 24

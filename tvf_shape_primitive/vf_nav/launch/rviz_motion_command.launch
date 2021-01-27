@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="world" default="base_link" />
+  <arg name="package" default="vf_data" />
+  <arg name="prefix_left" default="left_ur5" />
+  <arg name="prefix_right" default="right_ur5" />
+  <arg name="group" default="$(arg prefix_left)" />
+  <arg name="sim" default="false" />
+  <arg name="robot_ip" unless="$(arg sim)" />
+  <arg name="print_messages" value="True"/>
+  <arg name="debug" value="False"/>
+  <arg name="clear" value="True"/>
+  <arg name="wait" value="True"/>
+  <arg name="config" default="true" />
+
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+  <arg unless="$(arg config)" name="command_args" value="" />
+  <arg     if="$(arg config)" name="command_args" value="-d $(find vf_nav)/config/demo_config.rviz" />
+
+  <!--   -->
+  <node name="$(anon rviz)" launch-prefix="$(arg launch_prefix)" pkg="rviz" type="rviz" respawn="false"
+	args="$(arg command_args)" output="screen">
+    <rosparam command="load" file="$(find vaultbot_tools_moveit_config)/config/kinematics.yaml"/>
+  </node>
+
+  <!--<node name="image_rotater" type="image_rotate" pkg="image_rotate" output="screen" args= "image:=camera/color/image_raw rotated_image:=came/color/image_raw_rotated target_frame_id:=left_ur5_eef_code __name:=image_rotater"/> -->
+
+  <node name="vf_nav_server" type="VFNavServer.py" pkg="vf_nav" output="screen">
+    <param name="group_name" value="$(arg group)"/>
+    <param name="world_frame" value="/$(arg world)"/>
+    <param name="package" value="$(arg package)"/>
+    <param name="print_messages" value="$(arg print_messages)"/>
+    <param name="debug" value="$(arg debug)"/>
+    <param name="clear" value="$(arg clear)"/>
+    <param name="wait" value="$(arg wait"/>
+  </node>
+
+  <!--<node name="reachability_markers" type="reachability_markers.py" pkg="vaultbot_reachability" output="screen">
+    <param name="world_frame" value="$(arg world)"/>
+    <param name="package" value="vaultbot_reachability"/>
+    <param name="file_path" value="/data/locations/VaultBot_location_array"/>
+  </node> -->
+
+</launch>

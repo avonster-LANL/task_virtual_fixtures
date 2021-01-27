@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+  <rosparam param="stl_multiplier">5.0</rosparam>
+
+  <!--<node name="the_node_10" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="point_cloud/point_cloud"/>-->
+  <node name="the_node_1" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="1187995/1187995"/>
+  <node name="the_node_2" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="3101067/3101067"/>
+  <node name="the_node_3" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="3108035/3108035"/>
+  <node name="the_node_4" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="3119665/3119665"/>
+
+  <!--<node name="the_node_1" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="superellipsoids/z_0_xy_0"/>
+  <node name="the_node_2" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="superellipsoids/z_0_xy_20"/>
+  <node name="the_node_3" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="superellipsoids/z_0_xy_40"/>
+  <node name="the_node_4" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="superellipsoids/z_20_xy_0"/>
+  <node name="the_node_5" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="superellipsoids/z_20_xy_20"/>
+  <node name="the_node_6" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="superellipsoids/z_20_xy_40"/>
+  <node name="the_node_7" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="superellipsoids/z_40_xy_0"/>
+  <node name="the_node_8" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="superellipsoids/z_40_xy_20"/>
+  <node name="the_node_9" type="cloud_normals_viewer_node" pkg="tvf_construction" output="screen" args="superellipsoids/z_40_xy_40"/>-->
+
+</launch>

@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<launch>
+  <!-- By default, we do not start a database (it can be large) -->
+  <arg name="db" default="false" />
+  <arg name="sim" default="false" />
+  <arg name="debug" default="false" />
+  <arg name="world_frame" default="base_link" />
+  <arg name="package" default="non_contact_vf" />
+
+  <include file="$(find non_contact_vf)/surfaces/surfaces.launch" />
+  <include file="$(find non_contact_vf)/inspections/inspections.launch" />
+
+  <!-- Launch arm drivers 
+  <include file="$(find vaultbot_demos)/launch/ur_dual_arm.launch"/>-->
+  <!-- Launch camera drivers 
+  <include file="$(find realsense)/realsense_r200_launch.launch"/>-->
+
+  <node name="AR_frame_loader" type="ARFrameLoader.py" pkg="support_utilities" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+  </node>
+
+  <node name="Surface_frame_loader" type="SurfaceFrameLoader.py" pkg="support_utilities" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+  </node>
+
+  <node name="Surface_collision_loader" type="SurfaceCollisionLoader.py" pkg="support_utilities" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+  </node>
+
+  <!-- Or launch previous 3 nodes in a single node.
+  <node name="AR_scene_loader" type="ARSceneLoader.py" pkg="support_utilities" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+  </node>-->
+
+  <node name="VF_Polar_camera_server" type="SurfaceVFServer.py" pkg="non_contact_vf" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+    <param name="surface_type" value="Polar"/>
+    <param name="inspection_type" value="camera"/>
+  </node>
+
+  <!--<node name="VF_Polar_rad_server" type="SurfaceVFGenerator.py" pkg="non_contact_vf" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+    <param name="surface_type" value="Polar"/>
+    <param name="inspection_type" value="rad"/>
+  </node>
+
+  <node name="VF_Cartesian_camera_server" type="SurfaceVFGenerator.py" pkg="non_contact_vf" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+    <param name="surface_type" value="Cartesian"/>
+    <param name="inspection_type" value="camera"/>
+  </node>
+
+  <node name="VF_Cartesian_rad_server" type="SurfaceVFGenerator.py" pkg="non_contact_vf" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+    <param name="surface_type" value="Cartesian"/>
+    <param name="inspection_type" value="rad"/>
+  </node>-->
+
+  <!--<node name="reachability_markers" type="reachability_markers.py" pkg="vaultbot_reachability" output="screen">
+    <param name="world_frame" value="$(arg world)"/>
+    <param name="package" value="vaultbot_reachability"/>
+    <param name="file_path" value="/data/locations/VaultBot_location_array"/>
+  </node> -->
+
+</launch>

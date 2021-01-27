@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<launch>
+  <node name="vf_nav_client" type="VFNavClient.py" pkg="vf_nav" output="screen">
+    <param name="interface_type" value="key"/>
+  </node>
+</launch>

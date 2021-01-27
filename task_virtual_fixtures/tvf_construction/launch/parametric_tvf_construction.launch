@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="tvf_id" default="99" />
+  <include file="$(find tvf_data)/surfaces/surface_$(arg tvf_id).yaml" />
+
+  <rosparam param="stl_calculations">true</rosparam>
+  <rosparam param="stl_multiplier">10.0</rosparam>
+  <rosparam param="layer_generation">true</rosparam>
+  <rosparam param="all_graphs">false</rosparam> <!-- not used for these files -->
+  <rosparam param="graph">true</rosparam>
+  <node name="parametric_tvf_construction_node" type="parametric_tvf_construction_node" pkg="tvf_construction" output="screen" args="$(arg tvf_id)"/>
+<!--launch-prefix="xterm -e gdb - -args"-->
+</launch>

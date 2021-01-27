@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="tvf_id" default="99" />
+  <!--Load surface and inspection information -->
+  <include file="$(find tvf_data)/surfaces/surface_$(arg tvf_id).yaml" />
+  <!--Start interactive marker and descartes navigation servers-->
+  <node name="tvf_graph_imarker_node" type="tvf_graph_imarker_node" pkg="tvf_interactive" output="screen"/>
+  <node name="tvf_nav_descartes_server" pkg="tvf_nav_descartes" type="tvf_nav_descartes_server" output="screen" />
+
+</launch>

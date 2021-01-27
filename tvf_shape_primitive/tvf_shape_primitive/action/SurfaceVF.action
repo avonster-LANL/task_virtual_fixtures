@@ -1,0 +1,11 @@
+# Define the goal
+string ar_tag
+---
+# Define the result
+geometry_msgs/PoseArray[] pose_array
+int32[] y_array
+int32 x_size
+int32 z_size
+---
+# Define a feedback message
+bool running

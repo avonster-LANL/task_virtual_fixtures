@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<launch>
+<!--  <include file="$(find tvf_data)/surfaces/surface_10.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_11.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_12.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_13.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_14.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_15.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_16.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_17.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_18.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_19.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_20.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_21.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_22.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_23.yaml" />-->
+  <include file="$(find tvf_data)/surfaces/surface_24.yaml" />
+<!--  <include file="$(find tvf_data)/surfaces/surface_25.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_26.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_27.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_28.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_29.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_30.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_31.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_32.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_33.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_34.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_35.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_36.yaml" />-->
+
+  <include file="$(find tvf_data)/surfaces/surface_38.yaml" /> <!-- sketchup model -->
+
+  <include file="$(find tvf_data)/surfaces/surface_50.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_51.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_52.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_53.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_54.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_55.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_56.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_57.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_58.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_59.yaml" />
+<!--  <include file="$(find tvf_data)/surfaces/surface_60.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_61.yaml" />-->
+  <include file="$(find tvf_data)/surfaces/surface_62.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_63.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_64.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_65.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_66.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_67.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_68.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_69.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_70.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_71.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_72.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_73.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_74.yaml" />
+<!--  <include file="$(find tvf_data)/surfaces/surface_75.yaml" />-->
+  <include file="$(find tvf_data)/surfaces/surface_76.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_77.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_78.yaml" />
+  <include file="$(find tvf_data)/surfaces/surface_79.yaml" />
+<!--  <include file="$(find tvf_data)/surfaces/surface_80.yaml" />-->
+
+  <rosparam param="stl_calculations">true</rosparam>
+  <rosparam param="stl_multiplier">10.0</rosparam>
+  <rosparam param="layer_generation">true</rosparam>
+  <rosparam param="all_graphs">false</rosparam>
+  <rosparam param="graph">true</rosparam>
+  <node name="batch_tvf_construction_node" type="batch_tvf_construction_node" pkg="tvf_construction" output="screen"/>
+<!--launch-prefix="xterm -e gdb - -args"-->
+</launch>

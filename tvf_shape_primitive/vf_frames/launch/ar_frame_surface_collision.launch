@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="debug" default="false" />
+  <arg name="world_frame" default="base_link" />
+  <arg name="package" default="vf_data" />
+
+  <include file="$(find vf_data)/surfaces/surfaces.launch" />
+  <include file="$(find vf_data)/inspections/inspections.launch" />
+
+  <!--Load filtered frame at barcode location-->
+  <node name="ar_frame_loader" type="ARFrameLoader.py" pkg="vf_frames" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+  </node>
+
+  <!--Load offset frame for surface location-->
+  <node name="surface_frame_loader" type="SurfaceFrameLoader.py" pkg="vf_frames" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+  </node>
+
+  <!--Load collision model-->
+  <node name="surface_collision_loader" type="SurfaceCollisionLoader.py" pkg="vf_frames" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+  </node>
+
+  <!-- Run all three together (slower)
+  <node name="AR_scene_loader" type="ARSceneLoader.py" pkg="vf_frames" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+  </node>-->
+
+</launch>

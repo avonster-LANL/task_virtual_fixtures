@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="debug" default="false" />
+  <arg name="world_frame" default="table_link" />
+  <!--Load information for ar frames-->
+  <include file="$(find vf_data)/launch/ar_sim_info.launch" />
+
+  <!--Load simulated ar frames-->
+  <node name="AR_sim_loader" type="ARSimLoader.py" pkg="support_utilities" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+  </node>
+
+</launch>

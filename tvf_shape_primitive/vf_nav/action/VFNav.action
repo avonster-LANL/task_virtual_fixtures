@@ -1,0 +1,10 @@
+# Define the goal
+string command
+---
+# Define the result
+bool result
+---
+# Define a feedback message
+bool feedback
+
+

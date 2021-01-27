@@ -1,0 +1,9 @@
+# Define the goal
+geometry_msgs/PoseArray pose_array
+---
+# Define the result
+int32[] result
+---
+# Define a feedback message
+int32[] feedback
+

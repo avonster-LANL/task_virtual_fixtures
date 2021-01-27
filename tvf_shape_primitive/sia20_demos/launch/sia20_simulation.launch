@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- By default, we do not start a database (it can be large) -->
+  <arg name="db" default="false" />
+  <!-- Allow user to specify database location -->
+  <arg name="db_path" default="$(find motoman_sia20d_moveit_config)/default_warehouse_mongo_db" />
+
+  <!-- By default, we are not in debug mode -->
+  <arg name="debug" default="false" />
+  <arg name="config" default="true" />
+  <arg name="world_frame" default="base_link" />
+  <arg name="package" default="vf_data" />
+  <arg name="group" default="sia20" />
+  <arg name="print_messages" value="false"/>
+  <arg name="clear" value="True"/>
+  <arg name="wait" value="True"/>
+
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+  <arg unless="$(arg config)" name="command_args" value="" />
+  <arg     if="$(arg config)" name="command_args" value="-d $(find vf_nav)/config/sia20_config.rviz" />
+
+  <rosparam command="load" file="$(find motoman_sia20d_support)/config/joint_names_sia20d.yaml"/>
+
+  <!-- the "sim" argument controls whether we connect to a Simulated or Real robot -->
+  <!--  - if sim=false, a robot_ip and controller(fs100|dx100) arguments is required -->
+  <arg name="sim" default="true" />
+  <arg name="robot_ip" unless="$(arg sim)" />
+  <arg name="controller" unless="$(arg sim)" />
+
+  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+  <include file="$(find motoman_sia20d_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+  </include>
+
+  <!-- run the robot simulator and action interface nodes -->
+  <group if="$(arg sim)">
+    <include file="$(find industrial_robot_simulator)/launch/robot_interface_simulator.launch" />
+  </group>
+
+  <!-- run the "real robot" interface nodes -->
+  <!--   - this typically includes: robot_state, motion_interface, and joint_trajectory_action nodes -->
+  <!--   - replace these calls with appropriate robot-specific calls or launch files -->
+  <group unless="$(arg sim)">
+    <include file="$(find motoman_sia20d_support)/launch/robot_interface_streaming_sia20d.launch" >
+      <arg name="robot_ip" value="$(arg robot_ip)"/>
+      <arg name="controller" value="$(arg controller)"/>
+    </include>
+  </group>
+
+  <!-- We do not have a robot connected, so publish fake joint states
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+    <rosparam param="/source_list">[/move_group/fake_controller_joint_states]</rosparam> -->
+    <!-- <rosparam command="load" file="$(find motoman_sia20d_moveit_config)/config/initial_states.yaml" />
+  </node> -->
+
+  <!-- Given the published joint states, publish tf for the robot links -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+
+  <include file="$(find motoman_sia20d_moveit_config)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+  </include>
+
+  <!-- Run the main MoveIt executable without trajectory execution (we do not have controllers configured by default)
+  <include file="$(find motoman_sia20d_moveit_config)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="fake_execution" value="true"/>
+    <arg name="info" value="true"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include> -->
+
+  <!-- -->
+  <node name="$(anon rviz)" launch-prefix="$(arg launch_prefix)" pkg="rviz" type="rviz" respawn="false"
+	args="$(arg command_args)" output="screen">
+    <rosparam command="load" file="$(find motoman_sia20d_moveit_config)/config/kinematics.yaml"/>
+  </node>
+
+  <!-- If database loading was enabled, start mongodb as well -->
+  <include file="$(find motoman_sia20d_moveit_config)/launch/default_warehouse_db.launch" if="$(arg db)">
+    <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
+  </include>
+
+  <node name="vf_nav_server" type="VFNavServer.py" pkg="vf_nav" output="screen">
+    <param name="group_name" value="$(arg group)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+    <param name="print_messages" value="$(arg print_messages)"/>
+    <param name="debug" value="$(arg debug)"/>
+    <param name="clear" value="$(arg clear)"/>
+    <param name="wait" value="$(arg wait"/>
+  </node>
+
+  <!--Load information for ar frames
+  <include file="$(find sia20_demos)/launch/ar_sim_info_wall.yaml" />-->
+  <!--Load information for ar frames
+  <include file="$(find sia20_demos)/launch/ar_sim_info_pipe.yaml" />-->
+  <!--Load information for ar frames
+  <include file="$(find sia20_demos)/launch/ar_sim_info_barrel.yaml" />-->
+  <!--Load information for ar frames-->
+  <include file="$(find sia20_demos)/launch/ar_sim_info_hybrid.yaml" />
+
+  <!--Load simulated ar frames-->
+  <node name="AR_sim_loader" type="ARSimLoader.py" pkg="support_utilities" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+  </node>
+
+  <!--Load surface and collision frames -->
+  <include file="$(find tvf_data)/surfaces/surfaces.yaml" />
+  <include file="$(find tvf_data)/inspections/inspections.launch" />
+
+  <!--Load filtered frame at barcode location-->
+  <node name="ar_frame_loader" type="ARFrameLoader.py" pkg="vf_frames" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+  </node>
+
+  <!--Load offset frame for surface location-->
+  <node name="surface_frame_loader" type="SurfaceFrameLoader.py" pkg="vf_frames" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+  </node>
+
+  <!--Load collision model-->
+  <node name="surface_collision_loader" type="SurfaceCollisionLoader.py" pkg="vf_frames" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+  </node>
+
+  <!--Load vf servers-->
+  <node name="VF_Polar_camera_server" type="SurfaceVFServer.py" pkg="tvf_shape_primitive" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+    <param name="surface_type" value="Polar"/>
+    <param name="inspection_type" value="camera"/>
+  </node>
+
+  <!--<node name="VF_Polar_rad_server" type="SurfaceVFGenerator.py" pkg="tvf_shape_primitive" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+    <param name="surface_type" value="Polar"/>
+    <param name="inspection_type" value="rad"/>
+  </node>-->
+
+  <!-- -->
+  <node name="VF_Cartesian_camera_server" type="SurfaceVFServer.py" pkg="tvf_shape_primitive" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+    <param name="surface_type" value="Cartesian"/>
+    <param name="inspection_type" value="camera"/>
+  </node>
+
+  <!--<node name="VF_Cartesian_rad_server" type="SurfaceVFGenerator.py" pkg="tvf_shape_primitive" output="screen">
+    <param name="debug" value="$(arg debug)"/>
+    <param name="world_frame" value="/$(arg world_frame)"/>
+    <param name="package" value="$(arg package)"/>
+    <param name="surface_type" value="Cartesian"/>
+    <param name="inspection_type" value="rad"/>
+  </node>-->
+
+ <node name="tvf_nav_descartes_server" pkg="tvf_nav_descartes" type="tvf_nav_descartes_server" output="screen" />
+
+</launch>

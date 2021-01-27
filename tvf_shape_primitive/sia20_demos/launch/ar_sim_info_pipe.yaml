@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <rosparam param="ids">[5]</rosparam>
+  <rosparam param="xyzs">[[0.50, 0.00, 0.50]]</rosparam>
+  <rosparam param="rpys">[[1.57, 0.0, 0.0]]</rosparam>
+
+</launch>

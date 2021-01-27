@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<launch>
+  <rosparam param="ids">[11]</rosparam>
+  <rosparam param="surface_10_xyz">[0.8, 0.9, 0.1]</rosparam>
+  <rosparam param="surface_10_rpy">[3.14, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_11_xyz">[0.6, 0.6, 0.25]</rosparam>
+  <rosparam param="surface_11_rpy">[1.57, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_12_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="surface_12_rpy">[1.57, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_13_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="surface_13_rpy">[1.57, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_14_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="surface_14_rpy">[0.0, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_18_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="surface_18_rpy">[1.57, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_21_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="surface_21_rpy">[0.0, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_23_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="surface_23_rpy">[0.0, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_49_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="surface_49_rpy">[0.5, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_57_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="surface_57_rpy">[0.5, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_62_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="surface_62_rpy">[0.5, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_64_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="surface_64_rpy">[0.5, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_70_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="surface_70_rpy">[0.5, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_72_xyz">[0.5, 0.5, 0.1]</rosparam>
+  <rosparam param="surface_72_rpy">[0.5, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_100_xyz">[0.0, 0.0, 0.0]</rosparam>
+  <rosparam param="surface_100_rpy">[0.0, 0.0, 0.0]</rosparam>
+</launch>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <name>vf_frames</name>
+  <version>1.0.2</version>
+  <description>
+      scripts to add filtered frames for AR tags and surfaces
+  </description>
+
+  <license>BSD</license>
+  <author email="asharp@utexas.edu">Andrew Sharp</author>
+  <maintainer email="asharp@utexas.edu">Andrew Sharp</maintainer>
+  <url type="website">http://robotics.me.utexas.edu</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>rospy</build_depend>
+
+  <run_depend>rospy</run_depend>
+
+</package>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<package>
+  <name>tvf_nav_descartes</name>
+  <version>0.1.0</version>
+  <description>Using Descartes to navigate virtual fixtures</description>
+
+  <license>BSD</license>
+  <author email="asharp@utexas.edu">Andrew Sharp</author>
+  <maintainer email="asharp@utexas.edu">Andrew Sharp</maintainer>
+  <url type="website">http://robotics.me.utexas.edu</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>moveit_ros_planning_interface</build_depend>
+  <build_depend>move_interface</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>descartes_core</build_depend>
+  <build_depend>descartes_moveit</build_depend>
+  <build_depend>descartes_planner</build_depend>
+  <build_depend>descartes_trajectory</build_depend>
+  <build_depend>descartes_utilities</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+  <build_depend>trajectory_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>tf_conversions</build_depend>
+  <build_depend>move_interface</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>moveit_ros_planning_interface</run_depend>
+  <run_depend>move_interface</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>descartes_core</run_depend>
+  <run_depend>descartes_moveit</run_depend>
+  <run_depend>descartes_planner</run_depend>
+  <run_depend>descartes_trajectory</run_depend>
+  <run_depend>descartes_utilities</run_depend>
+  <run_depend>actionlib</run_depend>
+  <run_depend>trajectory_msgs</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>tf_conversions</run_depend>
+  <run_depend>move_interface</run_depend>
+
+</package>

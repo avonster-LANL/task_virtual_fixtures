@@ -1,0 +1,9 @@
+<library path="libvf_nav">
+  <class name="vf_nav/VFNavPanel"
+         type="vf_nav::VFNavPanel"
+         base_class_type="rviz::Panel">
+    <description>
+      A dockable panel widget to send motion commands through RViz.
+    </description>
+  </class>
+</library>

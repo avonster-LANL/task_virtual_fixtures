@@ -1,0 +1,24 @@
+terminal 1
+sshben
+dual_arm_r200 - roslaunch vaultbot_demos 
+
+terminal 2
+vaultbot_full_setup or sshben
+roslaunch non_vf_construction ar_realsense.launch
+
+terminal 3
+vaultbot_full_setup or sshben
+roslaunch vf_frames ar_frame_surface_collision.launch
+
+terminal 4
+vaultbot_full_setup or sshben
+roslaunch vf_construction ar_vf_servers.launch
+
+terminal 5
+vaultbot_full_setup
+roslaunch vf_nav rviz_motion_command.launch
+
+
+simulation
+roslaunch vf_data simulation.launch
+
